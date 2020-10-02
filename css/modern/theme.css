@@ -83,8 +83,8 @@ label,
 .label-item span,
 .slickgrid .slick-header,
 .slickgrid .slick-header-column {
-  color: #5C5C5C;
-  font-weight: 400 !important;
+  color: #028564;
+  font-weight: bold;
 }
 
 .panel .panel-title {
