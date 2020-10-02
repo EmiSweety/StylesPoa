@@ -1,0 +1,111 @@
+/**
+ * Axelor Business Solutions
+ *
+ * Copyright (C) 2005-2020 Axelor (<http://axelor.com>).
+ *
+ * This program is free software: you can redistribute it and/or  modify
+ * it under the terms of the GNU Affero General Public License, version 3,
+ * as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+header .navbar .nav > li > a:focus,
+header .navbar .nav > li > a:hover,
+header .navbar .nav > li.dropdown.open > a.dropdown-toggle {
+  color: #0275d8;
+}
+
+header .navbar .nav .dropdown-menu > li > a:hover,
+header .navbar .nav .dropdown-menu > li > a:focus,
+header .navbar .nav .dropdown-submenu:hover > a,
+header .navbar .nav .dropdown-submenu:focus > a {
+  background-color: #0275d8;
+}
+
+header .navbar .nav > li > a:focus,
+header .navbar .nav > li > a:hover,
+header .navbar .nav > li.dropdown.open > a.dropdown-toggle {
+  color: #0275d8;
+}
+
+textarea:focus, input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+  border-color: #0275d8;
+}
+
+.ui-datepicker .ui-slider-handle.ui-state-focus,
+.ui-datepicker .ui-slider-handle.ui-state-hover,
+.ui-datepicker .ui-state-highlight {
+  border-color: #0275d8 !important;
+}
+
+.ui-datepicker .ui-state-active,
+.ui-datepicker .ui-slider-handle.ui-state-hover {
+  background-color: #0275d8 !important;
+}
+
+/* navs */
+.nav-tree > li.open {
+  border-left-color: #0275d8;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  border-top-color: #0275d8 !important;
+}
+
+/* selects */
+.tag-select:focus,
+.tag-select.focus {
+  border-color: #0275d8;
+}
+
+.nav-select li.active a.nav-label,
+.nav-select li.active a.nav-label:after {
+  background: #0275d8;
+}
+
+/* boxes */
+.ibox input:focus + .box:before {
+  border-color: #0275d8;
+}
+.ibox:hover .box:before,
+.ibox:hover input:focus + .box:before {
+  border-color: #0275d8;
+}
+.ibox input:checked + .box:before {
+  border-color: #0275d8;
+  background-color: #0275d8;
+}
+.ibox:hover input:disabled:checked + .box:before {
+  border-color: 1px solid #0275d8;
+}
+.iswitch {
+    background-color: #0275d8;
+}
+
+/* panels */
+.panel .panel-header,
+.dashlet .dashlet-header {
+    border-top-width: 2px;
+}
