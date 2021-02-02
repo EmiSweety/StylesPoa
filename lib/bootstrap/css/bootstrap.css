@@ -1092,7 +1092,7 @@ input[type="color"],
 .uneditable-input {
   display: inline-block;
   height: 18px;
-  padding: 4px 6px;
+  padding: 15px 10px;
   margin-bottom: 9px;
   font-size: 13px;
   line-height: 18px;

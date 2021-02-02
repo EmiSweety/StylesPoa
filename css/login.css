@@ -21,7 +21,7 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   display: block;
-  background-color: #025951;
+  background-color: #FDFEFE;
   padding-top: 60px;
 }
 
@@ -41,13 +41,13 @@ header .navbar .brand-logo img {
 }
 
 .panel {
-  border: 1px solid #d4d4d4;
+  border: 1px solid #FDFEFE;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
   background-color: #fff;
 }
 
 .panel .panel-header {
-  background-color: #dadada;
+  background-color: #FDFEFE;
   padding: 10px;
   text-align: center;
 }
@@ -112,7 +112,7 @@ header .navbar .brand-logo img {
 }
 
 .login-panel .form-footer {
-  background-color: #fff;
+  background-color: #FDFEFE;
 }
 
 .login-panel .form-footer button {
@@ -202,3 +202,45 @@ body > footer > p a:visited {
 #social-buttons .social-title {
   padding-left: 8px;
 }
+
+        a:link, a:visited, a:hover {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            font-weight: bolder;
+            color: #706e6e;
+            cursor: pointer;
+            text-decoration: underline;
+            text-indent: 3pt;
+        }
+        .login_texto {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            font-weight: bolder;
+            color: #004d56;
+            text-decoration: none;
+            text-indent: 3pt;
+        }
+        .login_input {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            font-weight: normal;
+            color: #000000;
+            border: none;
+            border-bottom: thin solid #706e6e;
+            width: 100%;
+            height: 25px;
+        }
+        .login_button {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            font-weight: bolder;
+            color: #ffffff;
+            background: #004d56;
+            border: thin solid #004d56;
+            width: 100%;
+            height: 35px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }

@@ -75,137 +75,150 @@ String callbackUrl = AuthPac4jModule.getCallbackUrl();
 
 Set<String> centralClients = AuthPac4jModule.getCentralClients();
 %>
-<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
+    <title>Andino</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="google" content="notranslate">
     <link rel="shortcut icon" href="ico/favicon.ico">
     <x:style src="css/application.login.css" />
     <x:script src="js/application.login.js" />
   </head>
-  <body>
-
-    <% if (loginHeader != null) { %>
-    <jsp:include page="<%= loginHeader %>" />
-    <% } %>
-
-    <div class="container-fluid">
-      <div class="panel login-panel">
-        <div class="panel-header panel-default">
-          <img src="img/axelor.png" width="192px">
-        </div>
-
-        <div id="error-msg" class="alert alert-block alert-error text-center <%= errorMsg == null ? "hidden" : "" %>">
-          <h4><%= errorMsg %></h4>
-        </div>
-
-        <% if (!centralClients.isEmpty()) { %>
-	      <div id="social-buttons" class="form-fields text-center">
-          <% for (String client : centralClients) { %>
-            <%
-            Map<String, String> info = AuthPac4jModule.getClientInfo(client);
-            String title = info.get("title");
-            String icon = info.get("icon");
-            %>
-            <button class="btn" type="button" data-provider="<%= client %>">
-              <img class="social-logo <%= client %>" src="<%= icon %>" alt="<%= title %>" title="<%= title %>">
-              <div class="social-title"><%= String.format(loginWith, title) %></div>
-            </button>
-            <% } %>
-          </div>
-        <% } %>
-
-        <div class="panel-body">
-          <form id="login-form" action="<%=callbackUrl%>" method="POST">
-            <div class="form-fields">
-              <div class="input-prepend">
-                <span class="add-on"><i class="fa fa-envelope"></i></span>
-               
-                <!-- <input type="text" id="usernameId" name="username" placeholder="<%= loginUserName %>" autofocus="autofocus"> -->
-                <input type="text" id="usernameId" name="username" placeholder="Usuario" autofocus="autofocus">
+    <body >
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <colgroup><col width='45%'><col width='10%'><col width='45%'></colgroup>
+            <tr>
+                <td align="center" colspan="3">
+                    <br>&nbsp;<br>&nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <form id="login-form" action="<%=callbackUrl%>" method="POST">
+                        <table cellspacing='0' cellpadding='0' border='0' width='350px' style='width: 350px; border: 12px solid #d4d4d4;'>
+                            <colgroup><col width='50px'><col width='250px'><col width='50px'></colgroup>
+                            <tr height='50px'><td colspan="3">&nbsp;</td></tr>
+                            <tr>
+                                <td colspan="3" align="center">
+                                    <img src="img/axelor.png" height="120px" width="120px" alt="UASB">
+                                </td>
+								 <div id="error-msg" class="alert alert-block alert-error text-center <%= errorMsg == null ? "hidden" : "" %>">
+									<h4><%= errorMsg %></h4>
+								</div>
+                            </tr>
+                            <tr height='40px'><td colspan="3">&nbsp;</td></tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span id="spn_login_krd" class="login_texto">Usuario:</span>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><input type="text" id="usernameId" name="username" placeholder="Usuario"  maxlength="50" class="login_input"></td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span id="spn_login_drd" class="login_texto">Contrase&ntilde;a:</span>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><input type="password" id="passwordId" name="password" placeholder="Contrase&ntilde;a" class="login_input"></td><!-- placeholder="Contrase&ntilde;a"-->
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr height='30px'><td colspan="3">&nbsp;</td></tr>
+                            <tr>
+                                <td colspan="3" class="login_texto">
+                                	 <% if (tenants != null && tenants.size() > 1) { %>
+              							<div class="input-prepend">
+                							<span class="add-on"><i class="fa fa-database"></i></span>
+                								<select name="tenantId">
+                									<% for (String key : tenants.keySet()) { %>
+                										<option value="<%= key %>" <%= (key.equals(tenantId) ? "selected" : "") %>><%= tenants.get(key) %></option>
+                												<% } %>
+                								</select>
+              							</div>
+              						<% } %>
+                                    	<label class="ibox">
+                							<input type="checkbox" value="rememberMe" name="rememberMe">
+                							<span class="box"></span>
                 
-              
-              </div>
-              <div class="input-prepend">
-                <span class="add-on"><i class="fa fa-lock"></i></span>
-                <!-- <input type="password" id="passwordId" name="password" placeholder="<%= loginPassword %>"> -->
-                <input type="password" id="passwordId" name="password" placeholder="Contrase&ntilde;a">
-              
-              </div>
-              <% if (tenants != null && tenants.size() > 1) { %>
-              <div class="input-prepend">
-                <span class="add-on"><i class="fa fa-database"></i></span>
-                <select name="tenantId">
-                <% for (String key : tenants.keySet()) { %>
-                	<option value="<%= key %>" <%= (key.equals(tenantId) ? "selected" : "") %>><%= tenants.get(key) %></option>
-                <% } %>
-                </select>
-              </div>
-              <% } %>
-              <label class="ibox">
-                <input type="checkbox" value="rememberMe" name="rememberMe">
-                <span class="box"></span>
+                							<!-- <span class="title"><%= loginRemember %></span> -->
                 
-                <!-- <span class="title"><%= loginRemember %></span> -->
-                
-                <span class="title">Recordarme</span>
+               								 <span class="title" >Recordarme</span>
               
-              </label>
-              <input type="hidden" name="hash_location" id="hash-location">
-            </div>
-            <div class="form-footer">
-              <!-- <button class="btn btn-primary" type="submit"><%= loginSubmit %></button> -->
-              <button class="btn btn-primary" type="submit">iniciar sesi&oacute;n</button>
-
-            </div>
-          </form>
-        </div>
-      </div>
-      <div id="br-warning" class="alert alert-block alert-error hidden">
-	  	<h4><%= warningBrowser %></h4>
-	  	<ul>
-	  		<li>Chrome</li>
-	  		<li>Firefox</li>
-	  		<li>Safari</li>
-	  		<li>IE >= 11</li>
-	  	</ul>
-	  </div>
-	  <div id="ad-warning" class="alert hidden">
-	  	<h4><%= warningAdblock %></h4>
-	  	<%= warningAdblock2 %>
-	  </div>
-    </div>
-
-    <footer class="container-fluid">
-      <!-- <p class="credit small"><%= copyright %></p> -->
-      <p class="credit small">Copyright © <script>document.write(new Date().getFullYear())</script>	 Universidad Andina Sim&oacute;n Bol&iacute;var. Todos los derechos reservados.
-      </p>
-      
-    </footer>
-    
-    <div id="adblock"></div>
+              							</label>
+              						<input type="hidden"  name="hash_location" id="hash-location">
+                                </td>
+                            </tr>
+                            <tr height='40px'><td colspan="3">&nbsp;</td></tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td align="center">
+                                    <input name="Submit" type="submit" class="login_button" value="Ingresar">
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr height='50px'><td colspan="3">&nbsp;</td></tr>
+                        </table>
+                    </form>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+				<div id="br-warning" class="alert alert-block alert-error hidden">
+	  					<h4><%= warningBrowser %></h4>
+	  				<ul>
+	  					<li>Chrome</li>
+	  					<li>Firefox</li>
+	  					<li>Safari</li>
+	  					<li>IE >= 11</li>
+	  				</ul>
+	 			</div>
+	  				<div id="ad-warning" class="alert hidden">
+	  					<h4><%= warningAdblock %></h4>
+	  					<%= warningAdblock2 %>
+	  				</div>
+        <div style="position: absolute; bottom: 3px; width: 100%">
+            <div style='position: fixed; bottom: 0px; width: 100%'>
+        <div id='footer'>
+                <table width='100%'>
+                    <tr>
+                        <td align='center'>
+                            <center>
+                                <p class="credit small">Copyright © <script>document.write(new Date().getFullYear())</script>	 Universidad Andina Sim&oacute;n Bol&iacute;var. Todos los derechos reservados.
+      							</p>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+            </div></div>        
+       </div>
+        
+            <div id="adblock"></div>
 
     <script type="text/javascript">
-    $(function () {
-	    if (axelor.browser.msie && !axelor.browser.rv) {
+   		 $(function () {
+	  	  if (axelor.browser.msie && !axelor.browser.rv) {
 	     	$('#br-warning').removeClass('hidden');
-	    }
-	    if ($('#adblock') === undefined || $('#adblock').is(':hidden')) {
+	  	  }
+	 	   if ($('#adblock') === undefined || $('#adblock').is(':hidden')) {
 	     	$('#ad-warning').removeClass('hidden');
-	    }
+	 	   }
 	    
-	    $("#social-buttons").on('click', 'button', function (e) {
-	     var client = $(e.currentTarget).data('provider');
-	     window.location.href = './?client_name=' + client
+	  	  $("#social-buttons").on('click', 'button', function (e) {
+	  	   var client = $(e.currentTarget).data('provider');
+	  	   window.location.href = './?client_name=' + client
 	         + "&hash_location=" + encodeURIComponent(window.location.hash);
-	    });
+	  	  });
 
-        $('#login-form').submit(function(e) {
+      	  $('#login-form').submit(function(e) {
           document.getElementById("hash-location").value = window.location.hash;
-        });
-    });
-        </script>
-  </body>
+      	  });
+   			 });
+     </script>
+    </body>
 </html>
