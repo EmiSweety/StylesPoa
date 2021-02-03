@@ -116,7 +116,7 @@ Set<String> centralClients = AuthPac4jModule.getCentralClients();
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
-                                <td><input type="text" id="usernameId" name="username" placeholder="Usuario"  maxlength="50" class="login_input"></td>
+                                <td><input type="text" id="usernameId" name="username" placeholder="Usuario"  maxlength="100" class="login_input"></td>
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
